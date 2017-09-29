@@ -16,12 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from aboutme import views as aboutme_views
+from projects import views as project_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', admin.site.urls),
     url(r'^about-me', aboutme_views.view_about_me, name="about_me"),
-    url(r'^gallery', admin.site.urls),
+    url(r'^gallery', project_views.view_showcase, name="gallery"),
     url(r'^how-to-order', admin.site.urls),
     url(r'^blog', admin.site.urls),
     url(r'^contact-mark', admin.site.urls),
