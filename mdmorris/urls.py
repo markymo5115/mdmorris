@@ -18,5 +18,13 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', admin.site.urls)
+    url(r'^$', admin.site.urls),
+    url(r'^about-me/', admin.site.urls),
+    url(r'^gallery/', admin.site.urls),
+    url(r'^how-to-order/', admin.site.urls),
+    url(r'^blog/', admin.site.urls),
+    url(r'^contact-mark/', admin.site.urls),
+    url(r'^links/', admin.site.urls),
+    url(r'^buy-a-necklace/', admin.site.urls),
+    url(r'^view-cart/', admin.site.urls),
 ]
