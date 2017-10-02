@@ -17,16 +17,19 @@ from django.conf.urls import url
 from django.contrib import admin
 from aboutme import views as aboutme_views
 from projects import views as project_views
+from blog import views as blog_views
+from info import views as info_views
+from shop import views as shop_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', admin.site.urls),
+    url(r'^$', aboutme_views.view_home, name='home'),
     url(r'^about-me', aboutme_views.view_about_me, name="about_me"),
     url(r'^gallery', project_views.view_showcase, name="gallery"),
-    url(r'^how-to-order', admin.site.urls),
-    url(r'^blog', admin.site.urls),
-    url(r'^contact-mark', admin.site.urls),
-    url(r'^links', admin.site.urls),
-    url(r'^buy-a-necklace', admin.site.urls),
-    url(r'^view-cart', admin.site.urls),
+    url(r'^how-to-order', project_views.view_commission, name='commission'),
+    url(r'^blog', blog_views.view_blog, name='blog'),
+    url(r'^contact-mark', aboutme_views.view_contact_me, name='contact-me'),
+    url(r'^links', info_views.view_links, name='links'),
+    url(r'^buy-a-necklace', shop_views.view_buy_a_necklace, name='buy-a-necklace'),
+    url(r'^view-cart', shop_views.view_cart, name='view-cart'),
 ]
