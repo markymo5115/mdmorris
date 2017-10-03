@@ -7,7 +7,7 @@ body{
 }
 
 .navbar-header{
-	background: url('/static/header.png');
+	background: url('/static/images/header.png');
 	background-position: right;
 	background-repeat: no-repeat;
 	background-color: transparent;
@@ -16,7 +16,7 @@ body{
 
 .navbar-brand{
 	font-family: 'Satisfy';
-	background: url('/static/logo.png');
+	background: url('/static/images/logo.png');
 	height: 165px;
 	width: 207px;
 }
