@@ -42,55 +42,50 @@
 					<ul class="nav navbar-nav">
 						<li class="active">
 							<a href="{% url 'home' %}">
-								<!--<span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;Home-->
 								Home
 							</a>
 						</li>
 						<li class="">
 							<a href="{% url 'about_me' %}">
-								<!--<span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;About Mark-->
 								About Mark
 							</a>
 						</li>
-						<li class="">
-							<a href="{% url 'gallery' %}">
-								<!--<span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;Explore the Gallery-->
-							Explore the Gallery
+						<li class="galleries dropdown">
+							<a data-target="#" href="" class="dropdown-toggle" data-toggle="dropdown">
+							Explore the Gallery<b class="caret"></b>
 							</a>
+							<ul class="dropdown-menu">
+								<li class="sub-page"><a href="{% url 'photologue:pl-photo-archive' %}">by Date</a></li>
+								<li class="sub-page"><a href="{% url 'photologue:photo-list' %}">by List</a></li>
+							</ul>
 						</li>
 						<li class="">
 							<a href="{% url 'commission' %}">
-								<!--<span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;Commissions-->
 								Commissions
 							</a>
 						</li>					
 						<li class="">
 							<a href="{% url 'blog' %}">
-								<!--<span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;Blog-->
 								Blog
 							</a>
 						</li>					
 						<li class="">
 							<a href="{% url 'contact-me' %}">
-								<!--<span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;Contact Mark-->
 								Contact Mark
 							</a>
 						</li>
 						<li class="">
 							<a href="{% url 'links' %}">
-								<!--<span class="glyphicon glyphicon-chain" aria-hidden="true"></span>&nbsp;Links-->
 								Links
 							</a>
 						</li>
 						<li class="">
 							<a href="{% url 'buy-a-necklace' %}">
-								<!--<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Buy a Necklace-->
 								Buy a Necklace
 							</a>
 						</li>
 						<li class="">
 							<a href="{% url 'view-cart' %}">
-								<!--<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;View Cart/Checkout-->
 								View Cart/Checkout
 							</a>
 						</li>
@@ -99,6 +94,11 @@
 
 			</div>
 		</nav>
-		Just something to write!
+	<div class="container">
+		{% block content %}{% endblock %}
+	</div>
+	<script src="{{ STATIC_URL }}js/jquery.js"></script>
+	<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+	<script src="{{ STATIC_URL }}js/project.js"></script>
 	</body>
 </html>

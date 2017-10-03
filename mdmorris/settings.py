@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'shop',
     'photologue',
     'sortedm2m',
+    'photologue_custom',
 ]
 
 MIDDLEWARE = [
