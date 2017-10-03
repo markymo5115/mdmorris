@@ -53,6 +53,7 @@ class WebsiteStructureTest(FunctionalTest):
 			assert d[1] in self.browser.title
 
 	def test_all_the_menu_clicks_work(self):
+		# Mark tests that all the menu links work on every page, he is very thorough!
 		ad = self.live_server_url
 		self.run_through_all_menu_links(ad)
 		self.run_through_all_menu_links(ad + '/about-me')
@@ -62,3 +63,13 @@ class WebsiteStructureTest(FunctionalTest):
 		self.run_through_all_menu_links(ad + '/contact-mark')
 		self.run_through_all_menu_links(ad + '/buy-a-necklace')
 		self.run_through_all_menu_links(ad + '/view-cart')
+
+	
+	def test_gallery_displays_properly(self):
+		# Mark goes to the gallery and sees some thumbnails of the work 
+		# of this amazing enameller. 
+		self.browser.get(self.live_server_url + '/gallery')
+		#It is displayed nicely similar to Pinterest
+		# and the thumbnails load quickly with new images loading when he scrolls down.
+		
+		

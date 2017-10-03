@@ -37,11 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'aboutme',
     'projects',
     'blog',
     'info',
     'shop',
+    'photologue',
+    'sortedm2m',
 ]
 
 MIDDLEWARE = [
@@ -56,10 +60,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mdmorris.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'aboutme/templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,7 +72,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+		'django.template.context_processors.i18n',
+		'django.template.context_processors.media',
+		'django.template.context_processors.static',
             ],
+	    'debug': True,
         },
     },
 ]
@@ -108,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-gb'
 
 TIME_ZONE = 'UTC'
 
@@ -124,3 +133,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../media'))
+
+# Shouldn't need to do this as any app is automatically searched for static
+#STATICFILES_DIRS = (
+#	os.path.join(BASE_DIR, 'aboutme/static'),
+#)
+
+# Enabling the sites framework
+# 1. Add 'django.contrib.sites' to INSTALLED_APPS
+# 2. Define a SITE_ID setting:
+SITE_ID = 1
+# 3. Run migrate
