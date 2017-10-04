@@ -25,3 +25,8 @@ body{
 	font-family: 'Satisfy';
 	text-align: center;
 }
+
+div.row img.thumbnail {
+	margin-bottom: 5px;
+	display: inline-block;
+}
