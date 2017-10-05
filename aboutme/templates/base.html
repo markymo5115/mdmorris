@@ -40,8 +40,11 @@
 			            Explore the Gallery<b class="caret"></b>
 			        </a>
 					<ul class="dropdown-menu">
-						<li class="sub-page"><a href="{% url 'photologue:pl-gallery-archive' %}">Date views</a></li>
-						<li class="sub-page"><a href="{% url 'photologue:gallery-list' %}">List views</a></li>
+					<!--	<li class="sub-page"><a href="{% url 'photologue:pl-gallery-archive' %}">Date views</a></li>-->
+					<!--	<li class="sub-page"><a href="{% url 'photologue:gallery-list' %}">List views</a></li>-->
+
+					<li class="sub-page"><a href="{% url 'photologue:pl-gallery' slug='doorknobs' %}">Doorknobs</a></li>
+					<li class="sub-page"><a href="{% url 'photologue:pl-gallery' slug='miniature-paintings' %}">Miniature Paintings</a></li>
 					</ul>
 			    </li>
 			    <li class="photos dropdown">

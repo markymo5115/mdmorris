@@ -43,7 +43,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-	url(r'^photologue/', include('photologue_custom.urls')),
+	url(r'^photologue/', include('photologue_custom.urls', namespace='photologue_custom')),
 	url(r'^photologue/', include('photologue.urls', namespace='photologue')),
 	url(r'^sitemap\.xml$', sitemap, {'sitemaps':sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

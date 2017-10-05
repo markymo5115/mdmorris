@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'photologue',
     'sortedm2m',
     'photologue_custom',
+    'ckeditor',
+    'taggit',
 ]
 
 MIDDLEWARE = [
