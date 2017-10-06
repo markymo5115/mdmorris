@@ -21,4 +21,13 @@ class GalleryExtended(models.Model):
 	def __str__(self):
 	   return self.gallery.title
 
-# Create your models here.
+	def get_absolute_url(self):
+  	   return reverse('gallery', args=[self.gallery.slug])
+
+class MyGallery(Gallery):
+
+	class Meta:
+		proxy = True
+	
+	def get_absolute_url(self):
+	   return reverse('gallery', args=[self.slug])

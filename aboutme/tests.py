@@ -17,7 +17,7 @@ class ViewHomePageTest(TestCase):
 		print(response.content.decode('utf8'))
 		self.assertContains(response, '<a href="%s">' % reverse("home"), html=True )
 		self.assertContains(response, '<a href="%s">' % reverse("about_me"), html=True )
-		self.assertContains(response, '<a href="%s">' % reverse("gallery"), html=True )
+		self.assertContains(response, '<a href="%s">' % reverse("gallery", args=["doorknobs"]), html=True )
 		self.assertContains(response, '<a href="%s">' % reverse("commission"), html=True )
 		self.assertContains(response, '<a href="%s">' % reverse("blog"), html=True )
 		self.assertContains(response, '<a href="%s">' % reverse("contact-me"), html=True )
@@ -25,13 +25,12 @@ class ViewHomePageTest(TestCase):
 		self.assertContains(response, '<a href="%s">' % reverse("buy-a-necklace"), html=True )
 		self.assertContains(response, '<a href="%s">' % reverse("view-cart"), html=True )
 
-	def run_through_menu_links2(self, address):
-		response = self.client.get(address)
-		html = response.content.decode('utf8')
+	def run_through_menu_links2(self):
+		html = self.response.content.decode('utf8')
 		#print(response.content.decode('utf8'))
 		self.assertIn('<a href="%s">' % reverse("home"), html)
 		self.assertIn('<a href="%s">' % reverse("about_me"), html)
-		self.assertIn('<a href="%s">' % reverse("gallery"), html)
+		self.assertIn('<a href="%s">' % reverse("gallery", args=["doorknobs"]), html)
 		self.assertIn('<a href="%s">' % reverse("commission"), html)
 		self.assertIn('<a href="%s">' % reverse("blog"), html)
 		self.assertIn('<a href="%s">' % reverse("contact-me"), html)
@@ -41,31 +40,40 @@ class ViewHomePageTest(TestCase):
 
 
 	def test_home_page_has_correct_named_links(self):
-		self.run_through_menu_links2(reverse("home"))
+		self.response = self.client.get(reverse("home"))
+		self.run_through_menu_links2()
 
 	def test_about_me_page_has_correct_menu_links(self):
-		self.run_through_menu_links2(reverse("about_me"))
+		self.response = self.client.get(reverse("about_me"))
+		self.run_through_menu_links2()
 
 	def test_gallery_page_has_correct_menu_links(self):
-		self.run_through_menu_links2(reverse("gallery"))
+		self.response = self.client.get(reverse("gallery", kwargs={'slug':'doorknobs'}))
+		self.run_through_menu_links2()
 
 	def test_commission_page_has_correct_menu_links(self):
-		self.run_through_menu_links2(reverse("commission"))
+		self.response = self.client.get(reverse("commission"))
+		self.run_through_menu_links2()
 
 	def test_blog_page_has_correct_menu_links(self):
-		self.run_through_menu_links2(reverse("blog"))
+		self.response = self.client.get(reverse("blog"))
+		self.run_through_menu_links2()
 
 	def test_contact_me_page_has_correct_menu_links(self):
-		self.run_through_menu_links2(reverse("contact-me"))
+		self.response = self.client.get(reverse("contact-me"))
+		self.run_through_menu_links2()
 
 	def test_links_page_has_correct_menu_links(self):
-		self.run_through_menu_links2(reverse("links"))
+		self.response = self.client.get(reverse("links"))
+		self.run_through_menu_links2()
 
 	def test_buy_a_necklace_has_correct_menu_links(self):
-		self.run_through_menu_links2(reverse("buy-a-necklace"))
+		self.response = self.client.get(reverse("buy-a-necklace"))
+		self.run_through_menu_links2()
 
 	def test_view_cart_has_correct_menu_links(self):
-		self.run_through_menu_links2(reverse("view-cart"))
+		self.response = self.client.get(reverse("view-cart"))
+		self.run_through_menu_links2()
 
 class ViewAboutMeTests(TestCase):
 

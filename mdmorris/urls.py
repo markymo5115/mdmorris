@@ -24,6 +24,7 @@ from blog import views as blog_views
 from info import views as info_views
 from shop import views as shop_views
 from photologue.sitemaps import GallerySitemap, PhotoSitemap
+from photologue_custom.views import MyGalleryDetailView
 
 sitemaps = {'photologue_galleries': GallerySitemap,
 	    'photologue_photos': PhotoSitemap,
@@ -33,7 +34,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', aboutme_views.view_home, name='home'),
     url(r'^about-me', aboutme_views.view_about_me, name="about_me"),
-    url(r'^gallery', project_views.view_showcase, name="gallery"),
+   # url(r'^gallery', project_views.view_showcase, name="gallery"),
+    url(r'^gallery/(?P<slug>[\-\d\w]+)$', MyGalleryDetailView.as_view(), name="gallery"),
     url(r'^how-to-order', project_views.view_commission, name='commission'),
     url(r'^blog', blog_views.view_blog, name='blog'),
     url(r'^contact-mark', aboutme_views.view_contact_me, name='contact-me'),
@@ -43,7 +45,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-	url(r'^photologue/', include('photologue_custom.urls', namespace='photologue_custom')),
+#	url(r'^photologue/', include('photologue_custom.urls', namespace='photologue_custom')),
 	url(r'^photologue/', include('photologue.urls', namespace='photologue')),
 	url(r'^sitemap\.xml$', sitemap, {'sitemaps':sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

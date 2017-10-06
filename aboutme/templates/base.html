@@ -40,23 +40,21 @@
 			            Explore the Gallery<b class="caret"></b>
 			        </a>
 					<ul class="dropdown-menu">
-					<!--	<li class="sub-page"><a href="{% url 'photologue:pl-gallery-archive' %}">Date views</a></li>-->
-					<!--	<li class="sub-page"><a href="{% url 'photologue:gallery-list' %}">List views</a></li>-->
+					{% comment "keep until replacement works" %}
+					<li class="sub-page"><a href="{% url 'photologue:pl-gallery-archive' %}">Date views</a></li>-->
+					<li class="sub-page"><a href="{% url 'photologue:gallery-list' %}">List views</a></li>-->
 
 					<li class="sub-page"><a href="{% url 'photologue:pl-gallery' slug='doorknobs' %}">Doorknobs</a></li>
 					<li class="sub-page"><a href="{% url 'photologue:pl-gallery' slug='miniature-paintings' %}">Miniature Paintings</a></li>
+					</ul> 
+					{% endcomment %}
+					<li class="sub-page"><a href="{% url 'gallery' slug='doorknobs' %}">Doorknobs</a></li>
+					<li class="sub-page"><a href="{% url 'gallery' slug='miniature-paintings' %}">Miniature Paintings</a></li>
 					</ul>
 			    </li>
-<!--			    <li class="photos dropdown">
-				<a data-target="#" href="" class="dropdown-toggle" data-toggle="dropdown">
-			            Explore the Photos<b class="caret"></b>
-			        </a>
-					<ul class="dropdown-menu">
-						<li class="sub-page"><a href="{% url 'photologue:pl-photo-archive' %}">Date views</a></li>
-						<li class="sub-page"><a href="{% url 'photologue:photo-list' %}">List views</a></li>
-					</ul>
-			   </li>   -->
 		   	   <li class="commissions"><a href="{% url 'commission' %}">Commissions</a></li>
+		   	   <li class="blog"><a href="{% url 'blog' %}">Blog</a></li>
+
 		   	   <li class="contact_me"><a href="{% url 'contact-me' %}">Contact Mark</a></li>
 		   	   <li class="links"><a href="{% url 'links' %}">Links</a></li>
 		   	   <li class="buy_a_necklace"><a href="{% url 'buy-a-necklace' %}">Buy a Necklace</a></li>
