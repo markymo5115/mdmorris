@@ -15,7 +15,7 @@ class WebsiteStructureTest(FunctionalTest):
 		self.browser.get(address)
 		assert 'About Mark' in self.browser.title
 
-		self.browser.get(self.live_server_url + '/gallery/doorknobs')
+		self.browser.get(self.live_server_url + '/my-gallery/doorknobs')
 		time.sleep(10)
 		assert 'Doorknobs' in self.browser.title
 
@@ -61,7 +61,7 @@ class WebsiteStructureTest(FunctionalTest):
 		ad = self.live_server_url
 		self.run_through_all_menu_links(ad)
 		self.run_through_all_menu_links(ad + '/about-me')
-		self.run_through_all_menu_links(ad + '/gallery/doorknobs')
+		self.run_through_all_menu_links(ad + '/my-gallery/doorknobs')
 		self.run_through_all_menu_links(ad + '/how-to-order')
 		self.run_through_all_menu_links(ad + '/blog')
 		self.run_through_all_menu_links(ad + '/contact-mark')
@@ -72,7 +72,7 @@ class WebsiteStructureTest(FunctionalTest):
 	def test_gallery_displays_properly(self):
 		# Mark goes to the gallery and sees some thumbnails of the work 
 		# of this amazing enameller. 
-		self.browser.get(self.live_server_url + '/gallery/doorknobs')
+		self.browser.get(self.live_server_url + '/my-gallery/doorknobs')
 		#It is displayed nicely similar to Pinterest
 		# and the thumbnails load quickly with new images loading when he scrolls down.
 		

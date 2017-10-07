@@ -12,5 +12,6 @@ class PhotoJSONListView(JSONResponseMixin, PhotoListView):
 
 class MyGalleryDetailView(DetailView):
 	queryset = MyGallery.objects.on_site().is_public()
-	template = '/home/mark/TDD_mdmorris/mdmorris/photologue_custom/templates/photologue_custom/mygallery_detail.html'
+	template_name = 'mygallery_detail.html'
+	pass
 

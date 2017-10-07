@@ -1,15 +1,11 @@
-from django.conf.urls import *
+from django.conf.urls import url
 
-from photologue.views import GalleryListView
+from photologue_custom.views import MyGalleryDetailView
 from .views import PhotoJSONListView
 
 urlpatterns = [
-	url(r'^gallerylist/$', 
-	GalleryListView.as_view(paginate_by=4),
-	name='phologue_custom-gallery-list'),
-	url(r'^photolist/$',
-	PhotoJSONListView.as_view(),
-	name='photolgue_custom-photo-json-list'),
+	url(r'^(?P<slug>[\-\d\w]+)/$', MyGalleryDetailView.as_view(), name="gallery"),
+	url(r'^photolist/$',PhotoJSONListView.as_view(),name='photolgue_custom-photo-json-list'),
 #	url(r'^doorknobs-gallery(?P<slug>)/$', SpecificGalleryDetailView.as_view(),
 #	name='test')
 ]

@@ -2,7 +2,7 @@ from django.db import models
 
 from taggit.managers import TaggableManager
 
-from photologue.models import Gallery
+from photologue.models import Gallery, Photo
 
 
 class GalleryExtended(models.Model):
@@ -31,3 +31,11 @@ class MyGallery(Gallery):
 	
 	def get_absolute_url(self):
 	   return reverse('gallery', args=[self.slug])
+
+class MyPhoto(Photo):
+	
+	class Meta:
+		proxy = True
+
+	def get_absolute_url(self):
+	   return reverse('photo', args=[self.slug])
